@@ -1,0 +1,89 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    position: relative;
+    font-family: sans-serif;
+}
+#navbar{
+    background-color: lightgray;
+    margin: 0%;
+   display: flex;
+    flex-direction: row;
+    height: 10vh;
+    padding-top: 2%;
+}
+
+#logo{
+    padding-left: 8%;
+    font-size: large;
+    font-weight: bolder;
+    padding-right: 28%;
+    color: gray;
+}
+.item{
+    padding-left: 5%;
+    padding-top: 0.5%;
+    color: gray;
+    cursor: pointer;
+}
+#nav-item{
+    visibility: hidden;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    cursor: pointer;
+    height: 40px;
+    width: 50px;
+}
+
+.item a{
+    text-decoration: none;
+    color: gray;
+}
+
+@media screen and (max-width: 775px){
+    .item{
+        visibility: hidden;
+    }
+    #nav-item{
+        visibility: visible;
+    }
+}
+
+@media screen and (min-width: 775px){
+    .nav-content{
+        visibility: hidden;
+        max-height: 0;
+    }
+}
+#compose-h1{
+    margin-left: 5%;
+
+}
+#form-content{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+input,textarea{
+    width: 100%;
+    margin-top: 0%;
+}
+textarea{
+    height: 90px;
+}
+
+#publish_btn{
+    margin-top: 1%;
+    background-color: rgb(2, 75, 142);
+    color: white;
+    font-size: larger;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+}
+
+
+
+
+
