@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, "public")));
 var _=require("lodash");
 require("dotenv").config();
 
-mongoose.connect("mongodb+srv://"+process.env.NAME+":"+process.env.PASSWORD+"@cluster0.fxijpz7.mongodb.net/blogdb",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://blog-website:C3PtTcRPnobLemDA@cluster0.fxijpz7.mongodb.net/blogdb",{useNewUrlParser:true});
 
 
 var home_content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic vero laborum, aperiam quaerat harum iure, expedita, atque explicabo fuga omnis inventore accusamus quam distinctio quidem suscipit illum nobis. Nisi temporibus quidem nam laborum iure maxime cumque sconsequuntur! Expedita officia ut illum iure ipsum obcaecati temporibus unde ex natus. Modi, ex, incidunt, eaque consequuntur molestias earum voluptates placeat nisi assumenda animi quis magni. Sit tenetur consectetur, aperiam accusamus numquam voluptates nulla debitis.";
