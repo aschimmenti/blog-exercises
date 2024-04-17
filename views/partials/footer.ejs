@@ -1,3 +1,53 @@
-<script src="/script.js"></script>
+
+
+
+</div> <!--container-closed-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('#searchForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
+            var searchText = $('#searchInput').val();
+            if (searchText.length > 2) {
+                searchPosts(searchText); // Call the search function
+            }
+        });
+
+        $('#searchInput').on('input', function() {
+            var searchText = $(this).val();
+            if (searchText.length > 2) {
+                searchPosts(searchText); // Call the search function
+            } else {
+                $('#resultList').empty().hide();
+            }
+        });
+
+        function searchPosts(searchText) {
+            $.ajax({
+                url: '/search',
+                type: 'GET',
+                data: { query: searchText },
+                success: function(data) {
+                    $('#resultList').empty();
+                    if (data.length > 0) {
+                        data.forEach(function(item) {
+                            var encodedTitle = encodeURIComponent(item.heading);
+                            var link = `<a class="list-group-item list-group-item-action" href="/posts/${encodedTitle}">${item.heading}</a>`;
+                            $('#resultList').append(link);
+                        });
+                        $('#resultList').show();
+                    } else {
+                        $('#resultList').hide();
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching search results:', error);
+                    $('#resultList').empty().hide();
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

@@ -1,4 +1,27 @@
 <%- include('partials/header'); -%>
-<h1><%= title %></h1>
-<p><%= post %></p>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <%= date.toDateString() %>                
+                </div>
+                <div class="card-body">
+                    <h5 data-attribute-id = "<%= id %>" class="card-title"><%= title %></h5>
+                    <p class="card-text"><%= post %></p>
+                    <p class="card-text">
+                        <small class="text-muted">Written by <%= author %> in <%= place %> </small>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">Tags: <%= tags.join(', ') %></small>
+                    </p>
+                    <form action="/posts/delete/<%= id %>" method="POST">
+                        <button type="submit" class="btn-close" aria-label="Close"></button>
+                    </form>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%- include('partials/footer'); -%>
