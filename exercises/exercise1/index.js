@@ -3,14 +3,14 @@ const app = express();
 const path = require('path');
 
 // Serve static files from the "HTML" directory
-app.use(express.static(path.join(__dirname, 'HTML')));
+app.use(express.static(path.join(__dirname, 'html')));
 
 app.get('/', (req, res) => {
     res.send('Hello World'); 
 });
 
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'HTML', 'hello.html')); 
+    res.sendFile(path.join(__dirname, 'html', 'hello.html')); 
 });
 
 app.listen(3000, () => {
